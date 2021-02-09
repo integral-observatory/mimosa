@@ -57,7 +57,7 @@ INTEGER, save     :: ParaFile = 0     !(WM)
 !----------------------
 ! MAIN PRINT/INFO LEVEL
 !----------------------
-INTEGER ,save        :: DebugMode=0    !(WM)  
+INTEGER ,save        :: DebugMode=1    !(WM)  
 !print control
 ! 0 - no prints except error messages and some controls
 !     - default value

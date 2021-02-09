@@ -2,21 +2,21 @@
 inCat,s,h,"isgri_catalog.fits[1]",,,"DOL of the subset of the source catalogue"
 outCat,s,h,"out_cat.fits(ISGR-SRCL-RES.tpl)",,,"Dol  of the output (updated) catalogue"
 covrMod,s,h,"/isdc/arc/rev_3/ic/ibis/mod/isgr_covr_mod_0002.fits[1]",,,"DOL of the covariances fits file"
-corrDol,s,h,"",,,"DOL of the isgri off-axis corrections"
+corrDol,s,h,"/isdc/arc/rev_3/ic/ibis/mod/isgr_effi_mod_0011.fits[1]",,,"DOL of the isgri off-axis corrections"
 outMosIma,s,h,"out_mosa_ima.fits(ISGR-MOSA-IMA-IDX.tpl)",,,"Dol the index of mosaicked images"
 outMosRes,s,h,"out_mosa_res.fits(ISGR-MOSA-RES-IDX.tpl)",,,"Dol the index of mosaicked images source list"
 ToSearch,i,h,60,,,"Number of sources to be searched for "
 MinCatSouSnr,r,h,"5.",,,"Min. SNR for catalogue source" 
 MinNewSouSnr,r,h,"5.",,,"Min. SNR for new source"
-MapSize,r,h,"180.",,,"Mosaicked map radius [deg] " 
 UserProj,i,h,0,,,"Final mosaics projection type :0 GAL-CAR,1 RA_CAR,2 RA_TAN"
-MapCentre1,r,h,"0.",,,"Mosaicked map centre [deg]"
-MapCentre2,r,h,"0.",,,"Mosaicked map centre [deg]"
+MapCentre1,r,h,"114.",,,"Mosaicked map centre [deg]"
+MapCentre2,r,h,"-3.",,,"Mosaicked map centre [deg]"
+MapSize,r,h,"180.",,,"Mosaicked map radius [deg] " 
 
 ReCall,i,h,0,,,
 FitOffset,i,h,0,,,
 EnergyBand,i,h,0,,,
 UserProj,i,h,0,,,
 MapCentre1,r,h,0,,,
-DoPart2,i,h,0,,,
+DoPart2,i,h,1,,,
 

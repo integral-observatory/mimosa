@@ -1596,7 +1596,12 @@ call message(procname,str250,ZeroError,Status)
 if(ReCall==0)then
    call message(procname,'Reading attributes and setting real mosaics size ',ZeroError,Status)
    call Read2Mosa(MosaNumber,RaX,DecX,RaZ,DecZ,posAngle,incr,Status)
-   if(Status.ne.ISDC_OK)return
+   if(Status.ne.ISDC_OK) then
+       call message(procname,'FAILED Reading attributes and setting real mosaics size ',ZeroError,Status)
+       return
+   else
+       call message(procname,'SUCCEEDED Reading attributes and setting real mosaics size ',ZeroError,Status)
+   endif
 endif
 
 
@@ -1606,7 +1611,13 @@ call ReplaceIdx(GrpPtr,MosaImaIdxPtr,&
      MosaImaIdxStrucName,MosaImaStrucName,&
      OutMosImaFile,MosaImaIdxFitsName,.true.,Status)
   
-if(Status.ne.ISDC_OK)return
+
+if(Status.ne.ISDC_OK) then
+   call message(procname,'FAILED ReplaceIdx',ZeroError,Status)
+   return
+else
+   call message(procname,'SUCCEEDED ReplaceIdx',ZeroError,Status)
+endif
 
 
 

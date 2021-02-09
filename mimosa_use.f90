@@ -93,8 +93,8 @@ if(Val.eq.ZeroError)then
   enddo
   
 else
-   Status = val
-  write(str45,*)str20(1:len_trim(str20)),' Status : ',Status 
+  Status = val
+  write(str300,*)str20(1:len_trim(str20)),' Status : ',Status 
   str300 = '!! : '//str45(1:len_trim(str45))//Comment
   n = len_trim(str300)
   do while(n.gt.0)
