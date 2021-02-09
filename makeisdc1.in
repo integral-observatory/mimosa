@@ -1,0 +1,48 @@
+# makeisdc1(.in) - version 1.3
+# This file is included from Makefile(.in)
+# PLEASE, DO EDIT THIS FILE.
+# See README.make for details about how to modify this file. Basically it
+# involves cut&paste of ready to use templates from README.make - blocks
+# beginning with following text : PLEASE CUT&PASTE INTO .....
+# Those blocks should be put at the end of this file.
+ 
+# ======================= NAME OF ARCHIVE/TAR FILE  ======================
+#
+# If library is being built, then this usually is set to the name of the
+# library, like: dal, hello, ril, common, etc. Otherwise name is chosen
+# from names of executables/targets defined in this make file.                                                                     
+
+#F90FLAGS += -freal=nan -fbounds-check -finteger=-12345 -fpointer=invalid -ftrace=full
+
+THE_NAME                = mimosa
+
+TAR_FILE_NAME		= ${THE_NAME}-5.4.3
+
+# ====================== ISDC SOFTWARE TREE BRANCH  ======================
+# 
+# As of version 1.3 (or later) ISDC_BRANCH is not used anymore. It is left
+# for compatibility reasons with older software. You can left it as it is.
+
+ISDC_BRANCH		= ${ISDC_ANALYSIS_SW}
+
+# Below is a place for your modifications ...
+# ========================= C EXECUTABLE TARGET  ========================= #
+F90_EXEC_1_NAME		= ${THE_NAME}
+F90_EXEC_1_SOURCES	= ${THE_NAME}_defs.f90  ${THE_NAME}_use.f90 ${THE_NAME}_atti.f90  ${THE_NAME}_fits.f90 ${THE_NAME}_deconlib.f90 ${THE_NAME}_decod.f90 ${THE_NAME}_model0.f90 ${THE_NAME}_model_common.f90 ${THE_NAME}_model_objects.f90 ${THE_NAME}_model_proc.f90 ${THE_NAME}_model_two.f90 ${THE_NAME}_model_simulator.f90 ${THE_NAME}_aux.f90 ${THE_NAME}_genfit_aux.f90 ${THE_NAME}_genfit_psf.f90 ${THE_NAME}_genfit_gauss.f90 ${THE_NAME}_ls_fitting.f90   ${THE_NAME}_declean_aux.f90  ${THE_NAME}_declean.f90 ${THE_NAME}_init.f90 ${THE_NAME}_base.f90 ${THE_NAME}_control.f90 ${THE_NAME}_main.f90
+F90_EXEC_1_OBJECTS	= ${THE_NAME}_defs.o ${THE_NAME}_use.o  ${THE_NAME}_atti.o  ${THE_NAME}_fits.o ${THE_NAME}_deconlib.o ${THE_NAME}_decod.o ${THE_NAME}_model0.o ${THE_NAME}_model_common.o ${THE_NAME}_model_objects.o ${THE_NAME}_model_proc.o ${THE_NAME}_model_two.o ${THE_NAME}_model_simulator.o  ${THE_NAME}_aux.o ${THE_NAME}_genfit_aux.o  ${THE_NAME}_genfit_psf.o  ${THE_NAME}_genfit_gauss.o ${THE_NAME}_ls_fitting.o   ${THE_NAME}_declean_aux.o ${THE_NAME}_declean.o ${THE_NAME}_init.o ${THE_NAME}_base.o  ${THE_NAME}_control.o ${THE_NAME}_main.o 
+F90_EXEC_1_LIBRARIES	=-ldal3cat -lsla_f90 -ldal3ibis -ldal3hk -ldal3aux -lsla_c -ldal3gen -lcommon -lpil -lril -ldal -lcfitsio -l${NAGLIB}  ${LAST_LIBS}
+${F90_EXEC_1_NAME}:	${F90_EXEC_1_OBJECTS}			
+			${F90}  ${ALL_F90_CFLAGS} -o ${F90_EXEC_1_NAME} ${F90_EXEC_1_OBJECTS} ${ALL_F90_LDFLAGS} ${F90_EXEC_1_LIBRARIES}
+			
+CLEAN_TARGETS		+= ${F90_EXEC_1_NAME}
+ALL_TARGETS		+= ${F90_EXEC_1_NAME}
+TO_INSTALL_BIN		+= ${F90_EXEC_1_NAME}
+TO_INSTALL_HELP		+= ${THE_NAME}.txt
+TO_INSTALL_LIB		+= 
+TO_INSTALL_PAR		+= ${THE_NAME}.par
+TO_INSTALL_TEMPLATES	+= 
+TO_INSTALL_EXTRA_GLOBAL	+=
+TO_INSTALL_EXTRA_LOCAL	+=
+# ======================== END OF F90 EXECUTABLE TARGET  =================
+testcommands::	 ${F90_EXEC_1_NAME}
+	( cd unit_test ; ./README.test )
