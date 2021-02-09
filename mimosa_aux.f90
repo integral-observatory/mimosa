@@ -588,6 +588,8 @@ CHARACTER(len=20)  :: procName
 procName = 'ReadrOffCorrBand'
 Status = ISDC_OK
 
+call MESSAGE(procName,' will read', ZeroError, Status)
+
 e1 = OutEnergyBands(nBand,1)
 e2 = OutEnergyBands(nBand,2)
 
@@ -597,9 +599,14 @@ jdim = size(Arr,2)
 Arr(:,:) = 1.
 
 minenergy = minval(Bins)
-maxenergy = maxval(bins)
+maxenergy = maxval(Bins)
 
 
+write(str250,'(" total energy range: ",15f10.2,15f10.2)')minenergy, maxenergy
+call MESSAGE(procName, str250, ZeroError, Status)
+
+write(str250,'(" requested energy range: ",15f10.2,15f10.2)')e1, e2
+call MESSAGE(procName, str250, ZeroError, Status)
 
 if((e1 <  minenergy).or.(e2 <  minenergy).or.&
      (e1 > maxenergy).or.(e2 >maxenergy))then
@@ -611,8 +618,24 @@ jest = .false.
 n=1
 
 do while((n .le. BinNumber) .and.(.not.jest))
+
+
    if ((e1 .ne. Bins(n,1)).or.( e2 .ne. Bins(n,2)))then
       n=n+1
+
+      if ( (abs(e1 - Bins(n,1)) .lt. 0.5 ).or.(abs(e2 - Bins(n,2)) .lt. 0.5))then
+        write(str250,'(" Close: n,BinNumber: ",15i10,15i10)')n,BinNumber
+        call MESSAGE(procName, str250, ZeroError, Status)
+
+        write(str250,'(" e1,e2: ",15f10.2,15f10.2)')&
+            e1,e2
+        call MESSAGE(procName, str250, ZeroError, Status)
+
+        write(str250,'(" Bins(n,*): ",15f10.2,15f10.2)')&
+            Bins(n,1),Bins(n,2)
+        call MESSAGE(procName, str250, ZeroError, Status)
+        
+      endif
    else
       jest = .true.
    endif
@@ -621,7 +644,7 @@ enddo
 
 
 if (.not.jest)then
-    call MESSAGE(procName,' Uncorrect OffCorr  maps',OffCorrError,Status)
+    call MESSAGE(procName,' Unable to find correct OffCorr  maps',OffCorrError,Status)
     return
 endif
 
