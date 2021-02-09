@@ -1,0 +1,13 @@
+*.mod
+*.o
+*.swp
+Makefile
+Makefile.in
+ac_stuff
+compilers.config
+config.log
+config.status
+make_ok.log
+makeisdc1
+makeisdc1.in.backup
+mimosa
