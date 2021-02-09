@@ -750,7 +750,7 @@ SUBROUTINE IMAGE_TO_SKY_PROJECTION(InprojType,OutProjType,pixel1,pixel2,&
 !.......................................................
 
  Use ATTI_DEFS
- USE MIMOSA_GLOBVAR_MODULE
+! USE MIMOSA_GLOBVAR_MODULE
  USE MIMOSA_CONTROL_MODULE
  Implicit None
 !INPUT VARIABLES
@@ -853,10 +853,10 @@ status = 0
         endif
     end select !InProjType
  end select !OutProjtype
-aproj = alpha
-dproj=delta
-lproj=l
-bproj = b
+!aproj = alpha
+!dproj = delta
+!lproj = l
+!bproj = b
 !..........................
 END SUBROUTINE IMAGE_TO_SKY_PROJECTION
 !..........................
@@ -2822,7 +2822,7 @@ SUBROUTINE ROTAT &
 
 !----------------------------------------------------------
 USE ATTI_DEFS
-USE ATTI_INTERNAL
+!USE ATTI_INTERNAL
  Implicit None
 
 !INPUT VARIABLES

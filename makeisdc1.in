@@ -28,8 +28,10 @@ ISDC_BRANCH		= ${ISDC_ANALYSIS_SW}
 # Below is a place for your modifications ...
 # ========================= C EXECUTABLE TARGET  ========================= #
 F90_EXEC_1_NAME		= ${THE_NAME}
-F90_EXEC_1_SOURCES	= ${THE_NAME}_defs.f90  ${THE_NAME}_use.f90 ${THE_NAME}_atti.f90  ${THE_NAME}_fits.f90 ${THE_NAME}_deconlib.f90 ${THE_NAME}_decod.f90 ${THE_NAME}_model0.f90 ${THE_NAME}_model_common.f90 ${THE_NAME}_model_objects.f90 ${THE_NAME}_model_proc.f90 ${THE_NAME}_model_two.f90 ${THE_NAME}_model_simulator.f90 ${THE_NAME}_aux.f90 ${THE_NAME}_genfit_aux.f90 ${THE_NAME}_genfit_psf.f90 ${THE_NAME}_genfit_gauss.f90 ${THE_NAME}_ls_fitting.f90   ${THE_NAME}_declean_aux.f90  ${THE_NAME}_declean.f90 ${THE_NAME}_init.f90 ${THE_NAME}_base.f90 ${THE_NAME}_control.f90 ${THE_NAME}_main.f90
-F90_EXEC_1_OBJECTS	= ${THE_NAME}_defs.o ${THE_NAME}_use.o  ${THE_NAME}_atti.o  ${THE_NAME}_fits.o ${THE_NAME}_deconlib.o ${THE_NAME}_decod.o ${THE_NAME}_model0.o ${THE_NAME}_model_common.o ${THE_NAME}_model_objects.o ${THE_NAME}_model_proc.o ${THE_NAME}_model_two.o ${THE_NAME}_model_simulator.o  ${THE_NAME}_aux.o ${THE_NAME}_genfit_aux.o  ${THE_NAME}_genfit_psf.o  ${THE_NAME}_genfit_gauss.o ${THE_NAME}_ls_fitting.o   ${THE_NAME}_declean_aux.o ${THE_NAME}_declean.o ${THE_NAME}_init.o ${THE_NAME}_base.o  ${THE_NAME}_control.o ${THE_NAME}_main.o 
+F90_EXEC_1_SOURCES	= ${THE_NAME}_defs.f90  ${THE_NAME}_use.f90 ${THE_NAME}_atti.f90  ${THE_NAME}_fits.f90 ${THE_NAME}_deconlib.f90 ${THE_NAME}_model0.f90 ${THE_NAME}_aux.f90 ${THE_NAME}_genfit_aux.f90 ${THE_NAME}_genfit_psf.f90 ${THE_NAME}_genfit_gauss.f90 ${THE_NAME}_ls_fitting.f90   ${THE_NAME}_declean_aux.f90  ${THE_NAME}_declean.f90 ${THE_NAME}_init.f90 ${THE_NAME}_base.f90 ${THE_NAME}_control.f90 ${THE_NAME}_main.f90 
+#${THE_NAME}_atti_archive.f90
+F90_EXEC_1_OBJECTS	= ${THE_NAME}_defs.o ${THE_NAME}_use.o  ${THE_NAME}_atti.o  ${THE_NAME}_fits.o ${THE_NAME}_deconlib.o ${THE_NAME}_model0.o  ${THE_NAME}_aux.o ${THE_NAME}_genfit_aux.o  ${THE_NAME}_genfit_psf.o  ${THE_NAME}_genfit_gauss.o ${THE_NAME}_ls_fitting.o   ${THE_NAME}_declean_aux.o ${THE_NAME}_declean.o ${THE_NAME}_init.o ${THE_NAME}_base.o  ${THE_NAME}_control.o ${THE_NAME}_main.o
+# ${THE_NAME}_atti_archive.o
 F90_EXEC_1_LIBRARIES	=-ldal3cat -lsla_f90 -ldal3ibis -ldal3hk -ldal3aux -lsla_c -ldal3gen -lcommon -lpil -lril -ldal -lcfitsio -l${NAGLIB}  ${LAST_LIBS}
 ${F90_EXEC_1_NAME}:	${F90_EXEC_1_OBJECTS}			
 			${F90}  ${ALL_F90_CFLAGS} -o ${F90_EXEC_1_NAME} ${F90_EXEC_1_OBJECTS} ${ALL_F90_LDFLAGS} ${F90_EXEC_1_LIBRARIES}
