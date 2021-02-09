@@ -1,62 +1,14 @@
-# Parameter file for  ii_skyimage
-
-ReCall,i,h,0,,,
-FitOffset,i,h,0,,,
-EnergyBand,i,h,0,,,
-UserProj,i,h,0,,,
-MapCentre1,r,h,0,,,
-
-
-inOG,s,h,"",,,"DOL of the input Observation Group."
-outOG,s,h,"og_ibis.fits[GROUPING]",,,"DOL of the output Observation Group"
-inCat,s,h,"",,," Dol of the subset of the ISDC reference catalogue"
-outCat,s,h,"",,," Dol  of the output (updated) catalogue"
-ScwType,s,h,"ANY","POINTING|SLEW|OTHER|ANY",,"Type of Scw to be treated (ANY mean use any scw)"
-ScwDir,s,h,"",,," relative path to the individual results"
-mask,s,h,"",,," DOL of the MASK pattern fits file"
-deco,s,h,"",,," DOL of the projected decoding  pattern fits file"
-tungAtt,s,h,"",,," DOL of the Tungsten attenuation lenth fits file"
-aluAtt,s,h,"",,," DOL of the Aluminium attenuation lenth fits file"
-leadAtt,s,h,"",,," DOL of the Lead attenuation lenth  fits file"
-covrMod,s,h,"",,," DOL of the covariances fits file"
-outMosIma,s,h,"",,,"Dol the index of mosaicked images"
-outMosRes,s,h,"",,,"Dol the index of mosaicked images source list"
-num_band,i,h,-1,,,"Number of output energy bands"
-# Output energy bands can be only sums of input ones
-E_band_min,s,h,"1  301  601 ",,,"List of lower limits of output energy bands"
-E_band_max,s,h,"300  600   2048 ",,,"List of upper limits of output energy bands"
-DataMode,i,h,0,,," Data Simulation mode "
-#DataMode = 0 => OG shd are treated 
-#DataMode = 1 => shd are simulated "
-SearchMode,i,h,2,,," Source search mode "
-# SearchMode=0 => searching for all significant excesses
-# SearchMode=1 => searching for all catalog sources in Scw images 
-# SearchMode=2 => searching for K sources,where  K= ToSearch
-# SearchMode=3 => searching for all catalog sources in Scw images
-#                 next for K  signif excesses,where  K = ToSearch
-ToSearch,i,h,1,,,"Number of sources to be searched for "
-#ToSearch is  meaningfull for SearchMode=2 or 3
-CleanMode,i,h,1,,," Ghost cleaning"
-# CleanMode = 1 => source model lobes are substracted from the deconvolved image
-# CleanMode = -1 => no substraction
-OutType,s,h,"BIN_I",,,"Shadowgram type"
-DoPart2,i,h,1,,," if 1 or absent ==> do mosaicking part"
-MapAlpha,r,h,"0.0",,," Mosaicked map centre [deg]"
-MapDelta,r,h,"0.0",,,"Mosaicked map centre [deg] "
-MapSize,r,h,"40.",,,"Mosaicked map radius [deg] " 
-PixSpread,i,h,"1",,," 0 - no flux spread in mosaicking "
-MinCatSouSnr,r,h,"6.",,," Min. SNR for catalogue source"
-MinNewSouSnr,r,h,"7.",,," Min. SNR for new source"
+# Parameter file for  mimosa
+inCat,s,h,"isgri_catalog.fits[1]",,,"DOL of the subset of the source catalogue"
+outCat,s,h,"out_cat.fits(ISGR-SRCL-RES.tpl)",,,"Dol  of the output (updated) catalogue"
+covrMod,s,h,"/home/int/intportalowner/osa/ic/ibis/mod/isgr_covr_mod_0002.fits[1]",,,"DOL of the covariances fits file"
 corrDol,s,h,"",,,"DOL of the isgri off-axis corrections"
-SouFit,i,h,0,,," 0 for fitting source position and 1 for fixed source position  in Scw fit"
-ExtenType,i,h,0,,,"  exposure/residual maps"
-#   if DoPart < 2 then :
-#    0 or absent - Residual Map  at 4*n th extention of ima idx 
-#    1 - Exposure Map only  at 4*n th extention of ima idx
-#    2 - both Residual & Exposure maps at 4,5*n th extention of ima idx
-#    3 - one Expo map at the end of ima idx
-#    if ExtenType=1,2,3 the Mosaicked Exposure Map at 4*n th extention of mosa idx
-#   if DoPart eq 2 then 
-#         if ExtenType=1,2,3 the Mosaicked Exposure Map at 4*n th extention of mosa idx
-NegModels,i,h,0,,," 0 or absent for no negative models ; 1 - negative models'
-FastOpen,i,h,1,,,"if 1 then no CommonPreparePars"
+outMosIma,s,h,"out_mosa_ima.fits(ISGR-MOSA-IMA-IDX.tpl)",,,"Dol the index of mosaicked images"
+outMosRes,s,h,"out_mosa_res.fits(ISGR-MOSA-RES-IDX.tpl)",,,"Dol the index of mosaicked images source list"
+ToSearch,i,h,60,,,"Number of sources to be searched for "
+MinCatSouSnr,r,h,"5.",,,"Min. SNR for catalogue source" 
+MinNewSouSnr,r,h,"5.",,,"Min. SNR for new source"
+MapSize,r,h,"180.",,,"Mosaicked map radius [deg] " 
+UserProj,i,h,0,,,"Final mosaics projection type :0 GAL-CAR,1 RA_CAR,2 RA_TAN"
+MapCentre1,r,h,"0.",,,"Mosaicked map centre [deg]"
+MapCentre2,r,h,"0.",,,"Mosaicked map centre [deg]"
