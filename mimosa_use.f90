@@ -68,6 +68,7 @@ INTEGER,Intent(out)::Status
 INTEGER::n,rilStat,k
 CHARACTER(len=20) :: str20
 CHARACTER(len=45) ::str45
+CHARACTER(len=100) ::str100
 CHARACTER(len=300) :: str300
 
 rilStat =ISDC_OK
@@ -94,8 +95,8 @@ if(Val.eq.ZeroError)then
   
 else
   Status = val
-  write(str300,*)str20(1:len_trim(str20)),' Status : ',Status 
-  str300 = '!! : '//str45(1:len_trim(str45))//Comment
+  write(str100,*)str20(1:len_trim(str20)),' Status : ',Status 
+  str300 = '!! : '//str100(1:len_trim(str100))//Comment
   n = len_trim(str300)
   do while(n.gt.0)
      k=index(str300,' ',.true.)
