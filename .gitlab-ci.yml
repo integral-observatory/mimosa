@@ -1,0 +1,18 @@
+stages:
+- build
+
+
+build:
+  stage: build
+  image: admin.reproducible.online/build-env-osa-centos7:latest
+  script:
+  - source /package-env
+  - source $PACKAGE_ROOT/pyenv.sh
+  - pip install termcolor
+  - export ISDC_ENV=$PACKAGE_ROOT/osa/
+  - source $ISDC_ENV/bin/isdc_init_env.sh 
+  - source $PACKAGE_ROOT/root/bin/thisroot.sh
+  - ${PACKAGE_ROOT}/component-templating/component_templating.py patch dev
+  - $ISDC_ENV/ac_stuff/configure
+  - make install
+
