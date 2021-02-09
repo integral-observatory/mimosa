@@ -12,3 +12,11 @@ MapSize,r,h,"180.",,,"Mosaicked map radius [deg] "
 UserProj,i,h,0,,,"Final mosaics projection type :0 GAL-CAR,1 RA_CAR,2 RA_TAN"
 MapCentre1,r,h,"0.",,,"Mosaicked map centre [deg]"
 MapCentre2,r,h,"0.",,,"Mosaicked map centre [deg]"
+
+ReCall,i,h,0,,,
+FitOffset,i,h,0,,,
+EnergyBand,i,h,0,,,
+UserProj,i,h,0,,,
+MapCentre1,r,h,0,,,
+DoPart2,i,h,0,,,
+
