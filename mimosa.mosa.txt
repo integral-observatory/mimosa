@@ -1,0 +1,14 @@
+9
+/home/alldata/users/ola/soft/mimosa/cyg/cyg_gal_car_covartab/out_mosa_ima.fits
+/tera/ola/data/bright_mode_mosaics/mosa_sco_bright_exposure/mosa_sco_bright.fits
+/tera/ola/data/crab_resid/obs/myobs/scw/010200150010.001/isgri_sky_ima.fits
+/tera/ola/data/crab_resid/obs/myobs/scw/010200160010.001/isgri_sky_ima.fits
+/tera/ola/data/crab_resid/obs/myobs/scw/010200170010.001/isgri_sky_ima.fits
+/home/alldata/users/dgotz/newimaging/std/obs/myobs/scw/041000090010.001/isgri_sky_ima_bm1.fits
+/home/alldata/users/dgotz/newimaging/std/obs/myobs/scw/041000100010.001/isgri_sky_ima_bm1.fits
+/home/alldata/users/dgotz/newimaging/std/obs/myobs/scw/041000110010.001/isgri_sky_ima_bm1.fits
+/home/alldata/users/dgotz/newimaging/std/obs/myobs/scw/041000120010.001/isgri_sky_ima_bm1.fits
+
+
+
+
