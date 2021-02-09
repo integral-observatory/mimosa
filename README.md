@@ -4,10 +4,21 @@ To build, standard ISGR
 $ $ISDC_ENV/ac_stuff/configure && make
 ```
 
-parfile is provided, but it is just proof of running, need to get (or make) an actual one.
+You can also install it in your `ISDC_ENV`, if it works for you:
+
+```
+$ make install
+```
+
 
 To run:
 
 ```
 ./mimosa
+```
+
+Alternatively:
+
+```
+rm out_cat.fits out_mosa_*; mimosa inCat="$ISDC_REF_CAT[ISGRI_FLAG==1]"
 ```
