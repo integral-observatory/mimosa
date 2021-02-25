@@ -1,6 +1,10 @@
-Credit: Aleksandra Gros, CEA
+| | |
+| :-- | :-- |
+| Author |  Aleksandra Gros, CEA |
+| Adopted for OSA and maintained by | Volodymyr Savchenko, ISDC |
 
-To build, standard ISGR
+
+To build, follow [standard OSA procedure](https://www.isdc.unige.ch/integral/download/osa/doc/11.1/osa_inst_guide.pdf). Note that OSA is has to be installed and initialized prior to building the component. ISDC_ENV is set by OSA init. 
 
 ```
 $ $ISDC_ENV/ac_stuff/configure && make
