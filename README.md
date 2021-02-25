@@ -1,3 +1,5 @@
+Credit: Aleksandra Gros, CEA
+
 To build, standard ISGR
 
 ```
